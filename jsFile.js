@@ -16,21 +16,25 @@ let highScore = 0;
 
 document.querySelector('.check').addEventListener('click', function () {
     
-    let guess = Number (document.querySelector('.guess').value);
+    let guess = document.querySelector('.guess').value; //taking the value as a string
 
-
-    // when number is less than 1
-
-    if (guess<1) {
-        document.querySelector('.message').textContent = '<Enter between 1 to 20>'
-    }
 
 
     // When there is no input
 
-    /*else if (!guess){
+    if (guess === ''){
         document.querySelector('.message').textContent = 'No number!'
-    }*/
+    }
+
+    else {
+        guess = Number (guess) //
+
+    // when number is less than 1
+
+    if (guess<1 || guess == 0) {
+        document.querySelector('.message').textContent = '<Enter between 1 to 20>'
+    }
+
 
 
     // when the player wins
@@ -80,7 +84,9 @@ document.querySelector('.check').addEventListener('click', function () {
            lostLogic();
         }
     }
-});
+}
+}
+);
 
 
 // logic for update score to 0 after losing the game
